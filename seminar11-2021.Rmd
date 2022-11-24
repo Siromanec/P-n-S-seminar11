@@ -14,9 +14,11 @@ n <- 1000
 m <- 1000
 #    modify as necessary
 for (theta in c(.5,1,2,4, 8, 16, 32, 64)){  
-  sample_vars <- matrix((rnorm(n*m, 0, sqrt(theta/2))), nrow = m) ## modify this!
-  sample_vars <- apply(sample_vars, 1, var)
+  sample <- matrix((rnorm(n*m, 0, sqrt(theta/2))), nrow = m) ## modify this!
+  sample_vars <- apply(sample, 1, var)
+  sample_means <- colMeans(sample)
   cat("bias for theta = ", theta, "is: ", mean(sample_vars-theta/2), "\n", sep = " ")
+  cat("bias for mean = ", 0, "is: ", mean(sample_means-0), "\n", sep = " ")
 }  
 ```
 
@@ -28,7 +30,7 @@ for (theta in c(.5,1,2,4, 8, 16, 32, 64)){
 ```{r}
 # your code here
 hist(sample_vars)
-
+hist(sample_means)
 ```
 
 #### Task 1-3: Estimate the MSE of the estimator $\overline{\mathbf{X}}$ and discuss its consistency
