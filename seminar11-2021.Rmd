@@ -1,0 +1,126 @@
+---
+title: "Seminar 11"
+output: html_notebook
+---
+
+## Problem 1
+### Assume that $X_1,X_2,\dots$ are i.i.d. r.v.'s with __normal distribution__ $\mathscr{N}(0,\theta/2)$, $\theta>0$.
+
+#### Task 1-1: Take the moment method estimator \(\widehat{\mathbf{X}}\) as a point estimator of $\theta$, estimate the bias $\mathsf{E}(\widehat{\mathbf{X}}) - \theta$ for $\theta= 0.5, 1, 2$. Consider sample sizes $n = 10, 100, 1000$. 
+
+```{r}
+n <- 100
+m <- 1e3
+#    modify as necessary
+for (theta in c(.5,1,2)){
+  sample_means <- colMeans(matrix(rpois(n*m, theta), nrow = n))  ## modify this! 
+  cat("bias for theta = ", theta, "is: ", mean(sample_means-theta), "\n", sep = " ")
+}  
+```
+
+#### Task 1-2: Discuss the distribution of the estimator $\overline{\mathbf{X}}$:  
+* Draw the histogram of the values $\hat{\mathbf{x}}$  
+* Estimate the probability that $|\hat{\mathbf{X}} - \theta| > \varepsilon$
+```{r}
+# your code here
+hist(sample_means)
+```
+
+
+#### Task 1-3: Estimate the MSE of the estimator $\overline{\mathbf{X}}$ and discuss its consistency
+
+```{r}
+# your code here
+```
+
+
+## Problem 1
+### Assume that i.i.d. r.v.'s $X_1,X_2,\dots$ have distribution $\mathscr{E}(0,2\theta)$, $\theta>0$.
+
+#### Task 2-1:
+* Suggest a point estimator $\widehat\Theta$ of $\theta$ and simulate its values for $\theta= 0.5, 1, 2$. 
+* Estimate the bias $\mathsf{E}(\widehat\Theta) - \theta$.  
+* Consider sample sizes $n = 10, 100, 1000$. 
+
+```{r}
+# your code here
+```
+
+#### Task 2-2: Discuss the distribution of the estimator $\widehat\Theta$:  
+* Draw the histogram of the values $\widehat\theta$  
+* Estimate the probability that $|\widehat\Theta - \theta| > \varepsilon$
+
+```{r}
+# your code here
+```
+
+#### Task 2-3: Estimate the MSE of the estimator $\widehat\Theta$ and discuss its consistency
+
+```{r}
+# your code here
+```
+
+## Problem 3
+### Assume that i.i.d. r.v.'s $X_1,X_2,\dots$ have Laplace distribution of parameter $\theta$, $\theta>0$.
+
+#### Task 3-1:
+* Suggest a point estimator $\widehat\Theta$ of $\theta$ and simulate its values for $\theta= 0.5, 1, 2$. 
+* Estimate the bias $\mathsf{E}(\widehat\Theta) - \theta$.  
+* Consider sample sizes $n = 10, 100, 1000$. 
+
+```{r}
+# your code here
+```
+
+#### Task 3-2: Discuss the distribution of the estimator $\widehat\Theta$:  
+* Draw the histogram of the values $\widehat\theta$  
+* Estimate the probability that $|\widehat\Theta - \theta| > \varepsilon$
+
+```{r}
+# your code here
+```
+
+#### Task 3-3: Estimate the MSE of the estimator $\widehat\Theta$ and discuss its consistency
+
+```{r}
+# your code here
+```
+
+
+
+## Problem 4
+### Assume that i.i.d. r.v.'s $X_1,X_2,\dots$ have distribution of parameter
+\[
+		f(x\mid \theta) = c\frac{1 + \theta x}{2},
+\]
+where $x \in [-1,1]$, $\theta \in [-1,1]$ and $c$ is a constant independent of~$x$ that might depend on $\theta$.	
+
+### To generate random samples from this distribution, we can use the following method. Denote by \(F\) the cumulative distribution density of that distribution and by $U$ a random variable with uniform distribution \(\mathscr{U}(0,1)\); then the random variable \(X:=F^{-1}(U)\) has distribution \(F\). To see this, observe that, for every \(t \in (-1,1)\), 
+\[
+  \mathsf{P}(X \le t) = \mathsf{P}\bigl(U \le F(t)\bigr) = F(t)
+\]
+
+
+#### Task 3-1:
+* Suggest a point estimator $\widehat\Theta$ of $\theta$ and simulate its values for $\theta= 0.5, 1, 2$. 
+* Estimate the bias $\mathsf{E}(\widehat\Theta) - \theta$.  
+* Consider sample sizes $n = 10, 100, 1000$. 
+
+```{r}
+# your code here
+```
+
+#### Task 3-2: Discuss the distribution of the estimator $\widehat\Theta$:  
+* Draw the histogram of the values $\widehat\theta$  
+* Estimate the probability that $|\widehat\Theta - \theta| > \varepsilon$
+
+```{r}
+# your code here
+```
+
+#### Task 3-3: Estimate the MSE of the estimator $\widehat\Theta$ and discuss its consistency
+
+```{r}
+# your code here
+```
+
